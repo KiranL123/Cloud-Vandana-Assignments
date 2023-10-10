@@ -1,22 +1,18 @@
+A. Create an array with the values (1, 2, 3, 4, 5, 6, 7) and shuffle it.
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class ShuffleArray {
     public static void main(String[] args) {
-        // Create a list with the values (1, 2, 3, 4, 5, 6, 7)
+        
         List<Integer> arrayList = new ArrayList<>();
         for (int i = 1; i <= 7; i++) {
             arrayList.add(i);
         }
 
-        // Shuffle the list
         Collections.shuffle(arrayList);
-
-        // Convert the shuffled list back to an array if needed
         Integer[] shuffledArray = arrayList.toArray(new Integer[0]);
-
-        // Print the shuffled array or list
         for (Integer num : shuffledArray) {
             System.out.print(num + " ");
         }
@@ -24,17 +20,13 @@ public class ShuffleArray {
 }
 
 
-
-
-
-
-
+B. Enter a Roman Number as input and convert it to an integer. (ex IX = 9)
 import java.util.HashMap;
 import java.util.Map;
 
 public class RomanToInteger {
     public static void main(String[] args) {
-        String romanNumeral = "XIV"; // Replace with your Roman numeral input
+        String romanNumeral = "XIV";
 
         int result = romanToInt(romanNumeral);
         System.out.println("The integer value of " + romanNumeral + " is: " + result);
@@ -57,7 +49,6 @@ public class RomanToInteger {
             char currentChar = s.charAt(i);
             int currentValue = romanValues.get(currentChar);
 
-            // If the previous value is smaller than the current value, subtract it
             if (prevValue > currentValue) {
                 result -= currentValue;
             } else {
@@ -71,23 +62,12 @@ public class RomanToInteger {
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
+C. Check if the input is pangram or not. (Pangram is a sentence that contains all the alphabet
+from a-z)
 public class PangramChecker {
     public static void main(String[] args) {
         String input = "The quick brown fox jumps over the lazy dog";
-        boolean isPangram = isPangram(input.toLowerCase()); // Convert to lowercase for case-insensitive check
-
+        boolean isPangram = isPangram(input.toLowerCase()); 
         if (isPangram) {
             System.out.println("The input is a pangram.");
         } else {
@@ -96,27 +76,25 @@ public class PangramChecker {
     }
 
     public static boolean isPangram(String input) {
-        // Create an array to track if each letter has been encountered
+        
         boolean[] alphabet = new boolean[26];
 
         for (int i = 0; i < input.length(); i++) {
             char c = input.charAt(i);
 
-            // Check if the character is a lowercase letter
+           
             if (Character.isLetter(c) && c >= 'a' && c <= 'z') {
-                // Mark the corresponding index in the alphabet array as true
+               
                 alphabet[c - 'a'] = true;
             }
         }
-
-        // Check if all alphabet letters have been encountered
         for (boolean letter : alphabet) {
             if (!letter) {
-                return false; // If any letter is missing, it's not a pangram
+                return false; 
             }
         }
 
-        return true; // All letters have been encountered, it's a pangram
+        return true; 
     }
 }
 
